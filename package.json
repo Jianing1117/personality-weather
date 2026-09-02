@@ -1,0 +1,14 @@
+{
+  "name": "personality-weather-minitool",
+  "version": "0.4.0",
+  "private": true,
+  "description": "《人格气象》小红书离线小工具",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "validate": "node ./scripts/validate.mjs",
+    "validate:web": "node ./scripts/validate-web.mjs",
+    "test": "node ./scripts/test-content.mjs && node ./scripts/test-scoring.mjs",
+    "check": "npm run build && npm run validate && npm run validate:web && npm run test",
+    "package": "npm run check && node ./scripts/package.mjs"
+  }
+}

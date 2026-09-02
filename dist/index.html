@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1923" />
+  <meta name="description" content="20 道基础观测，必要时追加定向加测，测出你的本命气象与 3:4 人格肖像。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="民间人格气象台" />
+  <meta property="og:url" content="./" />
+  <meta property="og:title" content="人格气象｜你出现的时候，世界会发生什么？" />
+  <meta property="og:description" content="20 次轻量观测，测出你的本命气象和一张可分享的气象肖像。" />
+  <meta property="og:image" content="./assets/brand/personality-weather-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="人格气象：你出现的时候，世界会发生什么？" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="./assets/brand/personality-weather-og.jpg" />
+  <title>人格气象</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./assets/style.css?v=4.0.0" />
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="station-bar">
+      <span>民间人格气象台</span>
+      <span>PERSONAL WEATHER</span>
+    </header>
+
+    <main>
+      <section class="screen is-active intro-screen" id="introScreen" aria-labelledby="introTitle">
+        <article class="hero-card">
+          <img class="hero-photo" src="./assets/brand/personality-weather-cover-v3.jpg" alt="" aria-hidden="true" />
+          <div class="hero-shade" aria-hidden="true"></div>
+          <p class="hero-label">PERSONAL WEATHER · VOL. 01</p>
+          <h1 id="introTitle">人格<br />气象</h1>
+          <p class="hero-question">你出现的时候，世界会发生什么？</p>
+        </article>
+
+        <div class="intro-panel">
+          <div class="facts" aria-label="测试信息">
+            <div><strong>20+</strong><span>道观测</span></div>
+            <div><strong>≈2</strong><span>分钟</span></div>
+            <div><strong>16</strong><span>种气象</span></div>
+          </div>
+
+          <label class="name-field" for="nameInput">
+            <span>结果卡署名 <small>选填</small></span>
+            <input id="nameInput" name="weather-owner" type="text" maxlength="12" autocomplete="off" placeholder="输入昵称" />
+            <em>昵称只在本地用于生成结果卡，不会上传。</em>
+          </label>
+
+          <button class="primary-button" id="startButton" type="button">
+            <span>开始观测</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+          <button class="text-button" id="resumeButton" type="button" hidden>查看上一次结果</button>
+        </div>
+      </section>
+
+      <section class="screen quiz-screen" id="quizScreen" aria-labelledby="questionTitle">
+        <div class="quiz-top">
+          <button class="icon-button" id="quitButton" type="button" aria-label="退出测试">×</button>
+          <div class="progress-wrap" aria-label="答题进度">
+            <div class="progress-meta">
+              <span>PERSONAL WEATHER</span>
+              <span id="progressText">1 / 20</span>
+            </div>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+        </div>
+
+        <p class="quiz-hint">凭第一反应选择，点击后自动下一题</p>
+
+        <button class="chapter-transition" id="chapterTransition" type="button" hidden>
+          <span id="transitionKicker">NEXT OBSERVATION</span>
+          <strong id="transitionTitle">第二观测区 · 情绪回声</strong>
+          <p id="transitionTicker"></p>
+          <em>自动继续 · 点击可跳过</em>
+        </button>
+
+        <article class="question-card" id="questionCard">
+          <span class="question-number" id="questionNumber">01</span>
+          <h2 id="questionTitle"></h2>
+          <div class="options" id="options" role="radiogroup" aria-labelledby="questionTitle"></div>
+        </article>
+
+        <button class="previous-button" id="previousButton" type="button">← 返回上一题</button>
+      </section>
+
+      <section class="screen result-screen" id="resultScreen" aria-labelledby="resultName">
+        <div class="result-heading">
+          <p>PERSONAL WEATHER REPORT</p>
+          <h2>你的天气，已经显影。</h2>
+        </div>
+
+        <article class="result-poster" id="resultPoster" aria-label="人格气象分享卡">
+          <img class="poster-photo" id="resultPhoto" src="./assets/weather/cirrus.jpg" alt="本命气象实景照片" />
+          <div class="poster-shade" aria-hidden="true"></div>
+
+          <header class="poster-topline">
+            <span>PERSONAL WEATHER · 01</span>
+            <span>人格气象</span>
+          </header>
+
+          <p class="result-owner" id="resultOwner"></p>
+
+          <div class="poster-identity">
+            <p>你的本命气象</p>
+            <h3 id="resultName">卷云</h3>
+            <p class="poster-verdict">
+              <span id="resultVerdict"></span>
+              <span id="resultQuote">你看起来很轻，脑内其实一直在高空作业。</span>
+            </p>
+          </div>
+
+          <div class="poster-tags" id="resultTags" aria-label="人格气象标签">
+            <span>高空思辨</span>
+            <span>感受细密</span>
+          </div>
+
+          <div class="poster-dimensions" id="posterDimensions" aria-label="三项人格气象观测值"></div>
+
+          <footer class="poster-footer">
+            <div class="poster-companion-entry">
+              <span>适配气象</span>
+              <div class="poster-companion-copy">
+                <strong id="companionName">极光</strong>
+                <p class="poster-pair-verdict" id="companionVerdict">一个从不停留，一个不常出现——但你们见过彼此。</p>
+              </div>
+            </div>
+            <div class="poster-entry">
+              <span>小红书搜索</span>
+              <strong>人格气象</strong>
+            </div>
+          </footer>
+        </article>
+
+        <p class="share-hint">截图发给朋友：让 TA 在小红书搜「人格气象」继续测试。</p>
+
+        <section class="analysis-panel" aria-label="人格气象分析">
+          <article class="medal-card">
+            <span>本台认证</span>
+            <p id="resultMedal"></p>
+          </article>
+
+          <div class="evidence-block">
+            <span>为什么会是它</span>
+            <ul id="resultEvidence"></ul>
+          </div>
+
+          <p class="analysis-lead" id="resultSummary"></p>
+
+          <div class="analysis-block">
+            <span>你很厉害的地方</span>
+            <p id="resultStrength"></p>
+          </div>
+
+          <div class="analysis-block">
+            <span>轻轻冒犯一下</span>
+            <p id="resultMisread"></p>
+          </div>
+
+          <div class="relationship-grid" id="relationshipGrid">
+            <article class="relationship-card" id="companionCard">
+              <span id="companionLabel">适配气象 · 更容易同频的人</span>
+              <strong id="companionDetailName">极光</strong>
+              <p id="companionExplanation">这不是你的第二名，而是更容易和你形成舒服互动的一种天气。</p>
+              <em id="companionAction">把这张卡发给你的极光。</em>
+            </article>
+
+            <article class="relationship-card secondary-card" id="secondaryCard">
+              <span>次生气象 · 你身上的第二种天气</span>
+              <strong id="secondaryName">月食</strong>
+              <p id="secondaryExplanation">它是本次答案的算法第二名，说明你也有一点这种运行方式。</p>
+            </article>
+          </div>
+
+          <p class="same-weather-hook">如果 TA 测出来和你是同一种天气——恭喜，你们是同一片气象系统，这比适配更少见。</p>
+
+          <blockquote class="final-note" id="resultFinal"></blockquote>
+        </section>
+
+        <div class="result-actions">
+          <button class="primary-button" id="posterModeButton" type="button">进入分享卡模式</button>
+          <div class="restart-actions">
+            <button class="secondary-button" id="friendRestartButton" type="button">换个人测</button>
+            <button class="secondary-button" id="restartButton" type="button">我再测一次</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="poster-mode-bar" id="posterModeBar" hidden>
+    <span>分享卡模式 · 可直接截图</span>
+    <button id="exitPosterModeButton" type="button">退出</button>
+  </div>
+
+  <script src="./assets/data.js?v=4.0.0"></script>
+  <script src="./assets/scoring.js?v=4.0.0"></script>
+  <script src="./assets/app.js?v=4.0.0"></script>
+</body>
+</html>
