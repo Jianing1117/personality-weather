@@ -84,8 +84,8 @@
     ]),
     q05: question('q05', 'blind', '别想含义，三秒选一个想独处十分钟的画面：', [
       option('A', '深夜唯一亮着的厨房窗。', { pressure: 2, humidity: 1, visibility: -1 }, 'private_night_light'),
-      option('B', '风吹来一张无人认领的票。', { humidity: -1, wind: 2, volatility: 2 }, 'fate_drift'),
-      option('C', '杯壁慢慢凝出一圈水珠。', { humidity: 2, wind: -2, visibility: -1 }, 'silent_attunement'),
+      option('B', '陌生车站的空站台，列车即将进站。', { humidity: -1, wind: 2, volatility: 2 }, 'fate_drift'),
+      option('C', '雨天温室里，被绿植围住的长椅。', { humidity: 2, wind: -2, visibility: -1 }, 'silent_attunement'),
       option('D', '雪地尽头清晰的地平线。', { humidity: -2, visibility: 2, volatility: -1 }, 'clearance_boundary')
     ]),
     q08: question('q08', 'normal', '连续几天状态低落却没原因，你通常先做什么？', [
