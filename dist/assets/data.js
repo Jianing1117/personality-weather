@@ -149,7 +149,7 @@
       option('D', '我会替所有结局准备雨具。', { pressure: 2, humidity: 2, visibility: -1 }, 'scenario_preload_care')
     ]),
     q19: question('q19', 'normal', '相册提醒“三年前的今天”，你点开后会？', [
-      option('A', '留下最好的一张，其余归档。', { pressure: 1, humidity: 2, volatility: -1 }, 'curated_memory_archive'),
+      option('A', '看几张就退出，不整理也不关闭提醒。', { pressure: -1, wind: -2, volatility: -1 }, 'memory_glance_release'),
       option('B', '先想起当时的人后来去了哪。', { pressure: 1, humidity: 2, volatility: 2 }, 'relational_tide'),
       option('C', '当下划走，晚上又突然想起。', { pressure: 2, humidity: 1, visibility: -2 }, 'delayed_eclipse'),
       option('D', '关闭提醒，不让过去来推送。', { pressure: -1, humidity: -2, wind: 1 }, 'decisive_cutoff')
