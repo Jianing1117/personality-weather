@@ -48,7 +48,7 @@
     q21: '旅行突发混乱',
     q22: '多种穿衣风格',
     q23: '被说已经懂你',
-    q24: '努力没有回响',
+    q24: '项目久无反馈',
     'special-low-visibility': '想被懂却不说',
     'tb-pressure': '刺人消息回复',
     'tb-humidity': '聚会气氛不对',
@@ -172,7 +172,7 @@
       option('C', '直接纠正：你了解得还不够。', { pressure: -1, humidity: -1, visibility: 2 }, 'direct_correction_boundary'),
       option('D', '顺着他讲，不交出真实版本。', { pressure: -1, visibility: -1, volatility: 2 }, 'humor_deflection')
     ]),
-    q24: question('q24', 'absurd', '认真做了半年仍没回响，你接下来更可能怎么做？', [
+    q24: question('q24', 'absurd', '你投入一个很想做成的个人项目，半年仍没进展和反馈，你会？', [
       option('A', '照原节奏继续，不追着反馈跑。', { pressure: 1, wind: 1, volatility: -2 }, 'steady_coordinate'),
       option('B', '换包装和路径，保留核心。', { pressure: 1, wind: 1, volatility: 2 }, 'adaptive_reweather'),
       option('C', '继续蓄力，下次集中突破。', { pressure: 2, wind: 2, visibility: -1 }, 'volcanic_release'),
