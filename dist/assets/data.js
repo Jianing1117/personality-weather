@@ -80,7 +80,7 @@
       option('A', '立刻发他的库存照反击。', { wind: 2, visibility: 2, volatility: 1 }, 'instant_countermove'),
       option('B', '私聊请他撤回，语气礼貌。', { pressure: 1, humidity: -1, visibility: 1 }, 'private_boundary_correction'),
       option('C', '跟着笑，晚上再独自放大看。', { pressure: 2, humidity: 1, visibility: -2 }, 'hidden_replay'),
-      option('D', '保存下来，当作黑历史收藏。', { pressure: -2, visibility: 1, volatility: 2 }, 'comedy_archive')
+      option('D', '不去管它，继续聊别的。', { pressure: -2, humidity: -1, volatility: -2 }, 'nonreaction_release')
     ]),
     q05: question('q05', 'blind', '别想含义，三秒选一个想独处十分钟的画面：', [
       option('A', '深夜唯一亮着的厨房窗。', { pressure: 2, humidity: 1, visibility: -1 }, 'private_night_light'),
